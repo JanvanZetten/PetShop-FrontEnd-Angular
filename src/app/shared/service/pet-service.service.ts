@@ -39,11 +39,12 @@ export class PetServiceService {
   }
 
   UpdatePet(pet: Pet) {
-    for (let petItem of this.petItems){
-      if (petItem.id === pet.id){
-        petItem = pet;
-        break;
-      }
-    }
+    const petToUpdate = this.petItems.find(p => p.id === pet.id);
+    const index = this.petItems.indexOf(petToUpdate);
+    this.petItems[index] = pet;
+  }
+
+  deleteCustomer(id: number) {
+    this.petItems = this.petItems.filter(pet => id !== pet.id);
   }
 }

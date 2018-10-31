@@ -6,7 +6,8 @@
   <h4>Type: {{pet.type}}</h4>
   <h4>Price: {{pet.price}}</h4>
 
-  <button routerLink="/pet-update/{{pet.id}}">UpdatePet</button>
+  <button routerLink="/pet-update/{{pet.id}}">Update</button>
+  <button (click)="delete()">Delete</button>
 
 </div>
 <div *ngIf="!pet">

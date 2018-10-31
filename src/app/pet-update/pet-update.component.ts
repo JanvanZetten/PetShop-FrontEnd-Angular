@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Pet} from '../models/pet';
 import {PetServiceService} from '../shared/service/pet-service.service';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {FormControl, FormGroup} from '@angular/forms';
 
 @Component({
@@ -21,7 +21,8 @@ export class PetUpdateComponent implements OnInit {
   pet: Pet;
 
   constructor(private petService: PetServiceService,
-              private route: ActivatedRoute) { }
+              private route: ActivatedRoute,
+              private router: Router) { }
 
   ngOnInit() {
     const id = +this.route.snapshot.paramMap.get('id');
@@ -32,5 +33,6 @@ export class PetUpdateComponent implements OnInit {
     const pet = this.petForm.value;
     pet.id = this.pet.id;
     this.petService.UpdatePet(pet);
+    this.router.navigateByUrl('/pets/' + pet.id);
   }
 }
