@@ -4,6 +4,6 @@ export class Pet{
   id: number;
   name: string;
   type: number;
-  birthday: string;
+  birthday: Date;
   price: number;
 }

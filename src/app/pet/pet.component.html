@@ -1,7 +1,11 @@
 <h2>
-  Pet inventory
+  Pet Inventory:
 </h2>
 
 <ul>
-  <li *ngFor="let pet of petItems">id : {{pet.id}}, name: {{pet.name}}</li>
+  <li *ngFor="let pet of petItems">
+    <a routerLink="/pets/{{pet.id}}">id : {{pet.id}}, name: {{pet.name}}</a>
+  </li>
 </ul>
+
+<button routerLink="/pet-add">Add Pet</button>

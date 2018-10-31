@@ -7,6 +7,9 @@ import { NavbarComponent } from './shared/navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
 import { PetComponent } from './pet/pet.component';
 import { PetDetailComponent } from './pet-detail/pet-detail.component';
+import { PetAddComponent } from './pet-add/pet-add.component';
+import {ReactiveFormsModule} from '@angular/forms';
+import { PetUpdateComponent } from './pet-update/pet-update.component';
 
 @NgModule({
   declarations: [
@@ -14,11 +17,14 @@ import { PetDetailComponent } from './pet-detail/pet-detail.component';
     NavbarComponent,
     HomeComponent,
     PetComponent,
-    PetDetailComponent
+    PetDetailComponent,
+    PetAddComponent,
+    PetUpdateComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

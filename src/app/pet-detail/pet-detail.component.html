@@ -1,7 +1,14 @@
 <h2>Pet Details:</h2>
+<div *ngIf="pet">
+  <h4>Id: {{pet.id}}</h4>
+  <h4>Name: {{pet.name}}</h4>
+  <h4>Birthday: {{pet.birthday | date: 'shortDate'}}</h4>
+  <h4>Type: {{pet.type}}</h4>
+  <h4>Price: {{pet.price}}</h4>
 
-<h4>Id: {{pet.id}}</h4>
-<h4>Name: {{pet.name}}</h4>
-<h4>Birthday: {{pet.birthday}}</h4>
-<h4>Type: {{pet.type}}</h4>
-<h4>Price: {{pet.price}}</h4>
+  <button routerLink="/pet-update/{{pet.id}}">UpdatePet</button>
+
+</div>
+<div *ngIf="!pet">
+  <h2>Pet not found</h2>
+</div>

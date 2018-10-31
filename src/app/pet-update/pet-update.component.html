@@ -1,0 +1,29 @@
+<h2>
+  Update Pet {{pet.id}}:
+</h2>
+
+<form [formGroup]="petForm" (ngSubmit)="save()">
+
+  <label>
+    Name:
+    <input type="text" formControlName="name">
+  </label>
+
+  <label>
+    Type:
+    <input type="number" formControlName="type">
+  </label>
+
+  <label>
+    Birthday:
+    <input type="date" formControlName="birthday">
+  </label>
+
+  <label>
+    Price:
+    <input type="number" formControlName="price">
+  </label>
+
+  <button type="submit">Save</button>
+
+</form>
