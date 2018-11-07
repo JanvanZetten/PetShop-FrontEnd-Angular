@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {PetServiceService} from '../shared/service/pet-service.service';
-import {Pet} from '../models/pet';
+import {PetServiceService} from '../../shared/service/pet-service.service';
+import {Pet} from '../../shared/models/pet';
 import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
@@ -17,12 +17,11 @@ export class PetDetailComponent implements OnInit {
 
   ngOnInit() {
     const id = +this.route.snapshot.paramMap.get('id');
-    this.pet = this.petService.getPet(id);
+    this.petService.getPet(id).subscribe(petFromObservable => this.pet = petFromObservable);
   }
 
   delete() {
-    this.petService.deleteCustomer(this.pet.id);
-    this.router.navigateByUrl('/pets');
+    this.petService.deleteCustomer(this.pet.id).subscribe(() => this.router.navigateByUrl('/pets'));
   }
 
 }

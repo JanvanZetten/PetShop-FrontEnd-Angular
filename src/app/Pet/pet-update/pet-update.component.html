@@ -1,5 +1,5 @@
 <h2>
-  Update Pet {{pet.id}}:
+  Update Pet {{id}}:
 </h2>
 
 <form [formGroup]="petForm" (ngSubmit)="save()">
@@ -23,6 +23,15 @@
     Price:
     <input type="number" formControlName="price">
   </label>
+
+  <select formControlName="previousOwner">
+
+    <option [value]="null">Choose previous owner...</option>
+    <option [value]="preOwner" *ngFor="let preOwner of owners">
+      {{preOwner.id}}: {{preOwner.firstName}} {{preOwner.lastName}}
+    </option>
+
+  </select>
 
   <button type="submit">Save</button>
 

@@ -5,11 +5,16 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
-import { PetComponent } from './pet/pet.component';
-import { PetDetailComponent } from './pet-detail/pet-detail.component';
-import { PetAddComponent } from './pet-add/pet-add.component';
+import { PetComponent } from './Pet/pet-list/pet.component';
+import { PetDetailComponent } from './Pet/pet-detail/pet-detail.component';
+import { PetAddComponent } from './Pet/pet-add/pet-add.component';
 import {ReactiveFormsModule} from '@angular/forms';
-import { PetUpdateComponent } from './pet-update/pet-update.component';
+import { PetUpdateComponent } from './Pet/pet-update/pet-update.component';
+import {HttpClientModule} from '@angular/common/http';
+import { OwnerListComponent } from './Owner/owner-list/owner-list.component';
+import { OwnerDetailComponent } from './Owner/owner-detail/owner-detail.component';
+import { OwnerAddComponent } from './Owner/owner-add/owner-add.component';
+import { OwnerUpdateComponent } from './Owner/owner-update/owner-update.component';
 
 @NgModule({
   declarations: [
@@ -19,12 +24,17 @@ import { PetUpdateComponent } from './pet-update/pet-update.component';
     PetComponent,
     PetDetailComponent,
     PetAddComponent,
-    PetUpdateComponent
+    PetUpdateComponent,
+    OwnerListComponent,
+    OwnerDetailComponent,
+    OwnerAddComponent,
+    OwnerUpdateComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

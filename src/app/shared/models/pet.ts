@@ -6,4 +6,5 @@ export class Pet{
   type: number;
   birthday: Date;
   price: number;
+  previousOwner?: Owner;
 }

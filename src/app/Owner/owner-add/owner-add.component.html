@@ -1,0 +1,17 @@
+<h2>Add new Owner:</h2>
+
+<form [formGroup]="ownerForm" (ngSubmit)="save()">
+
+  <label>
+    First name:
+    <input type="text" formControlName="firstName">
+  </label>
+
+  <label>
+    Last name:
+    <input type="text" formControlName="lastName">
+  </label>
+
+  <button type="submit">Save</button>
+
+</form>

@@ -1,4 +1,4 @@
-export class Owner{
+export class Owner {
   id: number;
   firstName: string;
   lastName: string;

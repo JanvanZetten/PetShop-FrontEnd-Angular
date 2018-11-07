@@ -5,6 +5,7 @@
   <h4>Birthday: {{pet.birthday | date: 'shortDate'}}</h4>
   <h4>Type: {{pet.type}}</h4>
   <h4>Price: {{pet.price}}</h4>
+  <h4 *ngIf="pet.previousOwner">Previous owner: {{pet.previousOwner.firstName}} {{pet.previousOwner.lastName}}</h4>
 
   <button routerLink="/pet-update/{{pet.id}}">Update</button>
   <button (click)="delete()">Delete</button>

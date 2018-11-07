@@ -4,7 +4,9 @@
 
 <ul>
   <li *ngFor="let pet of petItems">
-    <a routerLink="/pets/{{pet.id}}">id : {{pet.id}}, name: {{pet.name}}</a>
+    <a routerLink="/pets/{{pet.id}}">
+      {{pet.id}}: {{pet.name}}
+    </a>
   </li>
 </ul>
 

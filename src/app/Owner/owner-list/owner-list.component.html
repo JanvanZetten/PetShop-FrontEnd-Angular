@@ -1,0 +1,13 @@
+<h2>
+  Registered Owners:
+</h2>
+
+<ul>
+  <li *ngFor="let owner of ownersList">
+    <a routerLink="/owners/{{owner.id}}">
+      {{owner.id}}: {{owner.firstName}} {{owner.lastName}}
+    </a>
+  </li>
+</ul>
+
+<button routerLink="/owner-add">Add Owner</button>

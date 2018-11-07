@@ -1,0 +1,11 @@
+<h2>Owner Details:</h2>
+<div *ngIf="owner">
+  <h4>Id: {{owner.id}}</h4>
+  <h4>First name: {{owner.firstName}}</h4>
+  <h4>Last name: {{owner.lastName}}</h4>
+
+
+</div>
+<div *ngIf="!owner">
+  <h3>Owner not found!</h3>
+</div>

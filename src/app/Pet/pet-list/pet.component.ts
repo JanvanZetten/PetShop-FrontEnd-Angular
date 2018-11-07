@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {Pet} from '../models/pet';
-import {PetServiceService} from '../shared/service/pet-service.service';
+import {Pet} from '../../shared/models/pet';
+import {PetServiceService} from '../../shared/service/pet-service.service';
 
 @Component({
   selector: 'app-pet',
@@ -14,7 +14,11 @@ export class PetComponent implements OnInit {
   constructor(private petService: PetServiceService) { }
 
   ngOnInit() {
-    this.petItems = this.petService.getPets();
+    this.refresh();
+  }
+
+  refresh(){
+    this.petService.getPets().subscribe(pets => this.petItems = pets);
   }
 
 }

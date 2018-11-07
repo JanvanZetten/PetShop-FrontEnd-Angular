@@ -1,50 +1,34 @@
 import { Injectable } from '@angular/core';
-import {Pet} from '../../models/pet';
+import {Pet} from '../models/pet';
 import {forEach} from '@angular/router/src/utils/collection';
+import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class PetServiceService {
+  PetApiUrl = 'https://localhost:5001/api/pets';
 
-  nextId = 1;
+  constructor(private http: HttpClient) { }
 
-  petItems: Pet[] = [
-    {id: this.nextId++, name: 'Fiddo', birthday: new Date(), price: 2000.2, type: 1 },
-    {id: this.nextId++, name: 'Fiddoline', birthday: new Date(), price: 2000.2, type: 1 },
-    {id: this.nextId++, name: 'Hans', birthday: new Date(), price: 0.2, type: 2 },
-    {id: this.nextId++, name: 'Erik', birthday: new Date(), price: 20, type: 3 },
-    {id: this.nextId++, name: 'Ole', birthday: new Date(), price: 200, type: 4 }
-  ];
-  constructor() { }
-
-  getPets(): Pet[] {
-    return this.petItems;
+  getPets(): Observable<Pet[]> {
+    return this.http.get<Pet[]>(this.PetApiUrl);
   }
 
-  getPet(id: number): Pet {
-
-    for (const pet of this.petItems) {
-      if (pet.id === id) {
-        return pet;
-      }
-    }
-    return null;
-
+  getPet(id: number): Observable<Pet> {
+    return this.http.get<Pet>(this.PetApiUrl + '/' + id);
   }
 
-  addPet(pet: Pet) {
-    pet.id = this.nextId++;
-    this.petItems.push(pet);
+  addPet(pet: Pet): Observable<Pet> {
+    return this.http.post<Pet>(this.PetApiUrl, pet);
   }
 
-  UpdatePet(pet: Pet) {
-    const petToUpdate = this.petItems.find(p => p.id === pet.id);
-    const index = this.petItems.indexOf(petToUpdate);
-    this.petItems[index] = pet;
+  updatePet(pet: Pet): Observable<Pet> {
+    return this.http.put<Pet>(this.PetApiUrl + '/' + pet.id, pet);
   }
 
-  deleteCustomer(id: number) {
-    this.petItems = this.petItems.filter(pet => id !== pet.id);
+  deleteCustomer(id: number): Observable<Pet> {
+    return this.http.delete<Pet>(this.PetApiUrl + '/' + id);
   }
 }
