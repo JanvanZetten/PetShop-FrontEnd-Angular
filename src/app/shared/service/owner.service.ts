@@ -22,4 +22,12 @@ export class OwnerService {
   AddOwner(owner: Owner): Observable<Owner> {
     return this.http.post<Owner>(this.ownerApiUrl, owner);
   }
+
+  UpdateOwner(owner: Owner): Observable<Owner> {
+    return this.http.put<Owner>(this.ownerApiUrl + '/' + owner.id, owner);
+  }
+
+  deleteOwner(id: number): Observable<Owner> {
+    return this.http.delete<Owner>(this.ownerApiUrl + '/' + id);
+  }
 }
