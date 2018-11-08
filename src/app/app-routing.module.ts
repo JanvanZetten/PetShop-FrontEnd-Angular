@@ -9,19 +9,22 @@ import {OwnerListComponent} from './Owner/owner-list/owner-list.component';
 import {OwnerDetailComponent} from './Owner/owner-detail/owner-detail.component';
 import {OwnerAddComponent} from './Owner/owner-add/owner-add.component';
 import {OwnerUpdateComponent} from './Owner/owner-update/owner-update.component';
+import {LoginComponent} from './login/login.component';
+import {AuthGuard} from './shared/guard/auth.guard';
 
 
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'pets', component: PetComponent},
-  { path: 'pets/:id', component: PetDetailComponent},
-  { path: 'pet-add', component: PetAddComponent},
-  { path: 'pet-update/:id', component: PetUpdateComponent},
-  { path: 'owners', component: OwnerListComponent},
-  { path: 'owners/:id', component: OwnerDetailComponent},
-  { path: 'owner-add', component: OwnerAddComponent},
-  { path: 'owner-update/:id', component: OwnerUpdateComponent}
+  { path: 'pets', component: PetComponent, canActivate: [AuthGuard]},
+  { path: 'pets/:id', component: PetDetailComponent, canActivate: [AuthGuard]},
+  { path: 'pet-add', component: PetAddComponent, canActivate: [AuthGuard]},
+  { path: 'pet-update/:id', component: PetUpdateComponent, canActivate: [AuthGuard]},
+  { path: 'owners', component: OwnerListComponent, canActivate: [AuthGuard]},
+  { path: 'owners/:id', component: OwnerDetailComponent, canActivate: [AuthGuard]},
+  { path: 'owner-add', component: OwnerAddComponent, canActivate: [AuthGuard]},
+  { path: 'owner-update/:id', component: OwnerUpdateComponent, canActivate: [AuthGuard]},
+  { path: 'login', component: LoginComponent}
 ];
 
 @NgModule({

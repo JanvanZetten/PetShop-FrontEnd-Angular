@@ -33,7 +33,13 @@ export class PetAddComponent implements OnInit {
 
   save() {
     const pet: Pet = this.petForm.value;
-    debugger;
+    const ownerId = this.petForm.value.previousOwner;
+    if (ownerId === 0){
+      pet.previousOwner = null;
+    } else {
+      pet.previousOwner = new Owner();
+      pet.previousOwner.id = ownerId;
+    }
     this.petForm.reset();
     this.petService.addPet(pet).subscribe(() => this.router.navigateByUrl('/pets'));
   }

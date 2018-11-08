@@ -1,8 +1,16 @@
 import { Injectable } from '@angular/core';
 import {Pet} from '../models/pet';
 import {forEach} from '@angular/router/src/utils/collection';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
+import {AuthenticationService} from './authentication.service';
+
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type':  'application/json',
+    'Authorization': 'my-auth-token'
+  })
+};
 
 @Injectable({
   providedIn: 'root'
@@ -10,25 +18,35 @@ import {Observable} from 'rxjs';
 export class PetServiceService {
   PetApiUrl = 'https://localhost:5001/api/pets';
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private authenticationService: AuthenticationService) { }
+
+  private setOptions() {
+    httpOptions.headers =
+      httpOptions.headers.set('Authorization', 'Bearer ' + this.authenticationService.getToken());
+  }
 
   getPets(): Observable<Pet[]> {
-    return this.http.get<Pet[]>(this.PetApiUrl);
+    this.setOptions();
+    return this.http.get<Pet[]>(this.PetApiUrl, httpOptions);
   }
 
   getPet(id: number): Observable<Pet> {
-    return this.http.get<Pet>(this.PetApiUrl + '/' + id);
+    this.setOptions();
+    return this.http.get<Pet>(this.PetApiUrl + '/' + id, httpOptions);
   }
 
   addPet(pet: Pet): Observable<Pet> {
-    return this.http.post<Pet>(this.PetApiUrl, pet);
+    this.setOptions();
+    return this.http.post<Pet>(this.PetApiUrl, pet, httpOptions);
   }
 
   updatePet(pet: Pet): Observable<Pet> {
-    return this.http.put<Pet>(this.PetApiUrl + '/' + pet.id, pet);
+    this.setOptions();
+    return this.http.put<Pet>(this.PetApiUrl + '/' + pet.id, pet, httpOptions);
   }
 
   deleteCustomer(id: number): Observable<Pet> {
-    return this.http.delete<Pet>(this.PetApiUrl + '/' + id);
+    this.setOptions();
+    return this.http.delete<Pet>(this.PetApiUrl + '/' + id, httpOptions);
   }
 }

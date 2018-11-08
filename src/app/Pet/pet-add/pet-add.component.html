@@ -24,10 +24,10 @@
     <input type="number" formControlName="price">
   </label>
 
-  <select formControlName="previousOwner">
+  <select formControlName="previousOwner" >
 
-    <option [value]="null">Choose previous owner...</option>
-    <option [value]="preOwner" *ngFor="let preOwner of owners">
+    <option [value]="0">Choose previous owner...</option>
+    <option [value]="preOwner.id" *ngFor="let preOwner of owners">
       {{preOwner.id}}: {{preOwner.firstName}} {{preOwner.lastName}}
     </option>
 

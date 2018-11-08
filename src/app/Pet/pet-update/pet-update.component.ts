@@ -45,6 +45,13 @@ export class PetUpdateComponent implements OnInit {
   save() {
     const pet = this.petForm.value;
     pet.id = this.id;
+    const ownerId = this.petForm.value.previousOwner;
+    if(ownerId === 0){
+      pet.previousOwner = null;
+    }else{
+      pet.previousOwner = new Owner();
+      pet.previousOwner.id = ownerId;
+    }
     this.petService.updatePet(pet).subscribe(() =>
       this.router.navigateByUrl('/pets/' + pet.id)
     );

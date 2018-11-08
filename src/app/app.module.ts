@@ -15,6 +15,8 @@ import { OwnerListComponent } from './Owner/owner-list/owner-list.component';
 import { OwnerDetailComponent } from './Owner/owner-detail/owner-detail.component';
 import { OwnerAddComponent } from './Owner/owner-add/owner-add.component';
 import { OwnerUpdateComponent } from './Owner/owner-update/owner-update.component';
+import {AuthenticationService} from './shared/service/authentication.service';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,8 @@ import { OwnerUpdateComponent } from './Owner/owner-update/owner-update.componen
     OwnerListComponent,
     OwnerDetailComponent,
     OwnerAddComponent,
-    OwnerUpdateComponent
+    OwnerUpdateComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +39,9 @@ import { OwnerUpdateComponent } from './Owner/owner-update/owner-update.componen
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [
+    AuthenticationService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
