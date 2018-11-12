@@ -3,6 +3,7 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Owner} from '../models/owner';
 import {Observable} from 'rxjs';
 import {AuthenticationService} from './authentication.service';
+import {environment} from '../../../environments/environment';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -17,7 +18,7 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class OwnerService {
-  ownerApiUrl = 'https://localhost:5001/api/owners';
+  ownerApiUrl = environment.apiUrl + '/owners';
 
   constructor(private http: HttpClient, private  authenticationService: AuthenticationService) { }
 

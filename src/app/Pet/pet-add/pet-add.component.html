@@ -1,38 +1,56 @@
-<h2>
-  Add a new Pet:
-</h2>
-
+<div class="m-1">
+  <h2>
+    Add a new Pet:
+  </h2>
+</div>
+<div class="ml-5">
 <form [formGroup]="petForm" (ngSubmit)="save()">
 
-  <label>
-    Name:
-    <input type="text" formControlName="name">
-  </label>
+  <div class="row">
+    <label>
+      Name:
+      <input type="text" class="form-control" formControlName="name">
+    </label>
+  </div>
 
-  <label>
-    Type:
-    <input type="number" formControlName="type">
-  </label>
+  <div class="row">
+    <label>
+      Type:
+      <input type="number" class="form-control" formControlName="type">
+    </label>
+  </div>
 
-  <label>
-    Birthday:
-    <input type="date" formControlName="birthday">
-  </label>
+  <div class="row">
+    <label>
+      Birthday:
+      <input type="date" class="form-control" placeholder="Datepicker" bsDatepicker formControlName="birthday" />
+    </label>
+  </div>
 
-  <label>
-    Price:
-    <input type="number" formControlName="price">
-  </label>
+    <div class="row">
+      <label>
+        Price:
+        <input type="number" class="form-control" formControlName="price">
+      </label>
+    </div>
 
-  <select formControlName="previousOwner" >
+      <div class="row">
+        <div class="form-group">
+          Previous owner:
+          <select formControlName="previousOwner" class="form-control">
 
-    <option [value]="0">Choose previous owner...</option>
-    <option [value]="preOwner.id" *ngFor="let preOwner of owners">
-      {{preOwner.id}}: {{preOwner.firstName}} {{preOwner.lastName}}
-    </option>
+            <option [value]="0">Choose previous owner...</option>
+            <option [value]="preOwner.id" *ngFor="let preOwner of owners">
+              {{preOwner.id}}: {{preOwner.firstName}} {{preOwner.lastName}}
+            </option>
 
-  </select>
+          </select>
+        </div>
+      </div>
 
-  <button type="submit">Save</button>
+        <div class="row">
+          <button type="submit" class="btn btn-primary">Save</button>
+        </div>
 
 </form>
+</div>

@@ -4,8 +4,11 @@
   <h4>First name: {{owner.firstName}}</h4>
   <h4>Last name: {{owner.lastName}}</h4>
 
-  <button routerLink="/owner-update/{{owner.id}}">Update</button>
-  <button (click)="delete()">Delete</button>
+
+  <button routerLink="/owner-update/{{owner.id}}" class="btn btn-primary ml-1">Update</button>
+
+  <button (click)="delete()" class="btn btn-primary ml-1">Delete</button>
+
 </div>
 <div *ngIf="!owner">
   <h3>Owner not found!</h3>

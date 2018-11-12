@@ -4,6 +4,7 @@ import {forEach} from '@angular/router/src/utils/collection';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
 import {AuthenticationService} from './authentication.service';
+import {environment} from '../../../environments/environment';
 
 const httpOptions = {
   headers: new HttpHeaders({
@@ -16,7 +17,7 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class PetServiceService {
-  PetApiUrl = 'https://localhost:5001/api/pets';
+  PetApiUrl = environment.apiUrl + '/pets';
 
   constructor(private http: HttpClient, private authenticationService: AuthenticationService) { }
 

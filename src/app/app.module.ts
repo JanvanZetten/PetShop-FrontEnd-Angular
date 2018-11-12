@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
@@ -17,6 +16,8 @@ import { OwnerAddComponent } from './Owner/owner-add/owner-add.component';
 import { OwnerUpdateComponent } from './Owner/owner-update/owner-update.component';
 import {AuthenticationService} from './shared/service/authentication.service';
 import { LoginComponent } from './login/login.component';
+import { ButtonsModule } from 'ngx-bootstrap/buttons';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,9 @@ import { LoginComponent } from './login/login.component';
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    ButtonsModule.forRoot(),
+    BsDatepickerModule.forRoot()
   ],
   providers: [
     AuthenticationService
