@@ -19,6 +19,7 @@ import { LoginComponent } from './login/login.component';
 import { ButtonsModule } from 'ngx-bootstrap/buttons';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import {BsDropdownModule, CollapseModule} from 'ngx-bootstrap';
+import {FlexLayoutModule} from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import {BsDropdownModule, CollapseModule} from 'ngx-bootstrap';
     ButtonsModule.forRoot(),
     BsDatepickerModule.forRoot(),
     BsDropdownModule.forRoot(),
-    CollapseModule.forRoot()
+    CollapseModule.forRoot(),
+    FlexLayoutModule
   ],
   providers: [
     AuthenticationService

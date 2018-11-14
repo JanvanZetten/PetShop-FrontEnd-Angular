@@ -1,17 +1,28 @@
-<h2>Login</h2>
+<div fxLayout="column" fxFill fxLayoutGap="5px">
 
-<form [formGroup]="loginForm" (ngSubmit)="login()">
+  <div fxLayout="row">
+    <h2>Login</h2>
+  </div>
 
-  <label>
-    Username:
-    <input type="text" formControlName="username">
-  </label>
+  <div fxLayout="row" fxLayoutAlign="center top" >
+    <form [formGroup]="loginForm" (ngSubmit)="login()" fxLayout="column" fxLayoutGap="10px">
 
-  <label>
-    Password:
-    <input type="password" formControlName="password">
-  </label>
+      <div fxLayout="column" fxLayoutGap="1px">
+        <label class="text">Username</label>
+        <input type="text" class="roundEnd col-form-label-lg"  formControlName="username" placeholder="Username...">
+      </div>
 
-  <button type="submit" class="btn btn-primary">Login</button>
+      <div fxLayout="column" fxLayoutGap="1px">
+        <label class="text">Password</label>
+        <input type="password" class="roundEnd col-form-label-lg" formControlName="password" placeholder="Password...">
+      </div>
 
-</form>
+
+      <button type="submit" class="btn-lg btn-primary roundEnd">Login</button>
+
+
+    </form>
+  </div>
+
+
+</div>
