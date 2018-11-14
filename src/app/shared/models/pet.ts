@@ -3,7 +3,7 @@ import {Owner} from './owner';
 export class Pet{
   id: number;
   name: string;
-  type: number;
+  type: Type;
   birthday: Date;
   price: number;
   previousOwner?: Owner;

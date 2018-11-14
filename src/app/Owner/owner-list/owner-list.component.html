@@ -1,13 +1,36 @@
-<h2>
-  Registered Owners:
-</h2>
+<div fxFill fxFlex>
 
-<ul>
-  <li *ngFor="let owner of ownersList">
-    <a routerLink="/owners/detail/{{owner.id}}">
-      {{owner.id}}: {{owner.firstName}} {{owner.lastName}}
-    </a>
-  </li>
-</ul>
+  <div *ngIf="ownersList" fxFill fxLayout="column" fxLayoutGap="10px" fxFlex>
+    <div fxLayout="row">
+      <h2>
+        Registered Owners:
+      </h2>
+      <span fxFlex></span>
+      <button routerLink="/owners/add" class="btn btn-dark">Add Owner</button>
+    </div>
 
-<button routerLink="/owners/add">Add Owner</button>
+    <div fxFlex fxFill fxLayout="row wrap" fxLayoutGap="5px">
+      <div routerLink="/owners/detail/{{owner.id}}" class="card" *ngFor="let owner of ownersList" fxFlex="22.5">
+        <div class="card-body">
+          <h5 class="card-title">{{owner.firstName}} {{owner.lastName}}</h5>
+          <a routerLink="/owners/detail/{{owner.id}}" class="btn btn-primary">Details</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div *ngIf="!ownersList">
+    <div id="circle">
+      <div class="loader">
+        <div class="loader">
+          <div class="loader">
+            <div class="loader">
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

@@ -1,13 +1,41 @@
-<h2>
-  Pet Inventory:
-</h2>
+<div fxFill fxFlex>
 
-<ul>
-  <li *ngFor="let pet of petItems">
-    <a routerLink="/pets/detail/{{pet.id}}">
-      {{pet.id}}: {{pet.name}}
-    </a>
-  </li>
-</ul>
+  <div *ngIf="petItems" fxFill fxLayout="column" fxLayoutGap="10px" fxFlex>
+    <div fxLayout="row">
+      <h2>
+        Pet Inventory:
+      </h2>
+      <span fxFlex></span>
+      <button routerLink="/pets/add" class="btn btn-dark">Add Pet</button>
+    </div>
 
-<button routerLink="/pets/add">Add Pet</button>
+    <div fxFlex fxFill fxLayout="row wrap" fxLayoutGap="5px">
+      <div routerLink="/pets/detail/{{pet.id}}" class="card" *ngFor="let pet of petItems" fxFlex="22.5">
+        <h5 class="card-header">{{pet.name}}</h5>
+        <div class="card-body">
+          <h5 class="card-title">Type: {{pet.type}}</h5>
+          <h5 class="card-title">Cost: {{pet.price}},-</h5>
+          <a routerLink="/pets/detail/{{pet.id}}" class="btn btn-primary">Details</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div *ngIf="!petItems">
+    <h2>Pet not found</h2>
+    <div id="circle">
+      <div class="loader">
+        <div class="loader">
+          <div class="loader">
+            <div class="loader">
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+

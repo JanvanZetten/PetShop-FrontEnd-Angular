@@ -1,16 +1,48 @@
-<h2>Pet Details:</h2>
-<div *ngIf="pet">
-  <h4>Id: {{pet.id}}</h4>
-  <h4>Name: {{pet.name}}</h4>
-  <h4>Birthday: {{pet.birthday | date: 'shortDate'}}</h4>
-  <h4>Type: {{pet.type}}</h4>
-  <h4>Price: {{pet.price}}</h4>
-  <h4 *ngIf="pet.previousOwner">Previous owner: {{pet.previousOwner.firstName}} {{pet.previousOwner.lastName}}</h4>
 
-  <button routerLink="/pets/update/{{pet.id}}">Update</button>
-  <button (click)="delete()">Delete</button>
+<h2>Pet Details:</h2>
+
+<div *ngIf="pet">
+  <div fxLayout="row" fxLayoutGap="5px">
+    <div fxLayout="column">
+    <h4>Id: </h4>
+    <h4>Name: </h4>
+    <h4>Birthday: </h4>
+    <h4>Type: </h4>
+    <h4>Price: </h4>
+    <h4 *ngIf="pet.previousOwner">Previous owner: </h4>
+    </div>
+
+    <div fxLayout="column">
+      <h4>{{pet.id}}</h4>
+      <h4>{{pet.name}}</h4>
+      <h4>{{pet.birthday | date: 'shortDate'}}</h4>
+      <h4>{{pet.type}}</h4>
+      <h4>{{pet.price}}</h4>
+      <h4 *ngIf="pet.previousOwner">{{pet.previousOwner.firstName}} {{pet.previousOwner.lastName}}</h4>
+    </div>
+
+  </div>
+
+
+  <div fxLayout="row" fxLayoutGap="10px">
+    <button class="btn btn-secondary" routerLink="/pets/update/{{pet.id}}">Update</button>
+
+    <button class="btn btn-danger" (click)="delete()">Delete</button>
+  </div>
 
 </div>
+
 <div *ngIf="!pet">
   <h2>Pet not found</h2>
+  <div id="circle">
+    <div class="loader">
+      <div class="loader">
+        <div class="loader">
+          <div class="loader">
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
