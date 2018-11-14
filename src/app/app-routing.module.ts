@@ -17,13 +17,13 @@ import {AuthGuard} from './shared/guard/auth.guard';
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'pets', component: PetComponent, canActivate: [AuthGuard]},
-  { path: 'pets/:id', component: PetDetailComponent, canActivate: [AuthGuard]},
-  { path: 'pet-add', component: PetAddComponent, canActivate: [AuthGuard]},
-  { path: 'pet-update/:id', component: PetUpdateComponent, canActivate: [AuthGuard]},
+  { path: 'pets/detail/:id', component: PetDetailComponent, canActivate: [AuthGuard]},
+  { path: 'pets/add', component: PetAddComponent, canActivate: [AuthGuard]},
+  { path: 'pets/update/:id', component: PetUpdateComponent, canActivate: [AuthGuard]},
   { path: 'owners', component: OwnerListComponent, canActivate: [AuthGuard]},
-  { path: 'owners/:id', component: OwnerDetailComponent, canActivate: [AuthGuard]},
-  { path: 'owner-add', component: OwnerAddComponent, canActivate: [AuthGuard]},
-  { path: 'owner-update/:id', component: OwnerUpdateComponent, canActivate: [AuthGuard]},
+  { path: 'owners/detail/:id', component: OwnerDetailComponent, canActivate: [AuthGuard]},
+  { path: 'owners/add', component: OwnerAddComponent, canActivate: [AuthGuard]},
+  { path: 'owners/update/:id', component: OwnerUpdateComponent, canActivate: [AuthGuard]},
   { path: 'login', component: LoginComponent}
 ];
 

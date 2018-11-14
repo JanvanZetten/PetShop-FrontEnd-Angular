@@ -18,6 +18,7 @@ import {AuthenticationService} from './shared/service/authentication.service';
 import { LoginComponent } from './login/login.component';
 import { ButtonsModule } from 'ngx-bootstrap/buttons';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import {BsDropdownModule, CollapseModule} from 'ngx-bootstrap';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,9 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
     ReactiveFormsModule,
     HttpClientModule,
     ButtonsModule.forRoot(),
-    BsDatepickerModule.forRoot()
+    BsDatepickerModule.forRoot(),
+    BsDropdownModule.forRoot(),
+    CollapseModule.forRoot()
   ],
   providers: [
     AuthenticationService

@@ -53,7 +53,7 @@ export class PetUpdateComponent implements OnInit {
       pet.previousOwner.id = ownerId;
     }
     this.petService.updatePet(pet).subscribe(() =>
-      this.router.navigateByUrl('/pets/' + pet.id)
+      this.router.navigateByUrl('/pets/detail/' + pet.id)
     );
   }
 }

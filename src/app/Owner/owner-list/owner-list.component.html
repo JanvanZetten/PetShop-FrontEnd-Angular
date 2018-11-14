@@ -4,10 +4,10 @@
 
 <ul>
   <li *ngFor="let owner of ownersList">
-    <a routerLink="/owners/{{owner.id}}">
+    <a routerLink="/owners/detail/{{owner.id}}">
       {{owner.id}}: {{owner.firstName}} {{owner.lastName}}
     </a>
   </li>
 </ul>
 
-<button routerLink="/owner-add">Add Owner</button>
+<button routerLink="/owners/add">Add Owner</button>

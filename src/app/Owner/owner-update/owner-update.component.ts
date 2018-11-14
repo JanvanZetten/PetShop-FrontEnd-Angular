@@ -36,7 +36,7 @@ export class OwnerUpdateComponent implements OnInit {
   save(){
     const owner: Owner = this.ownerForm.value;
     owner.id = this.id;
-    this.ownerService.UpdateOwner(owner).subscribe(() => this.router.navigateByUrl('/owners/' + this.id));
+    this.ownerService.UpdateOwner(owner).subscribe(() => this.router.navigateByUrl('/owners/detail/' + this.id));
   }
 
 }
