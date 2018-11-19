@@ -9,6 +9,7 @@ import {environment} from '../../../environments/environment';
   providedIn: 'root'
 })
 export class AuthenticationService {
+  public redirectUrl: string;
 
   constructor(private http: HttpClient) {}
 
