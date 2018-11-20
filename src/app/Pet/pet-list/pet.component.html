@@ -9,8 +9,8 @@
       <button routerLink="/pets/add" class="btn btn-dark">Add Pet</button>
     </div>
 
-    <div fxFlex fxFill fxLayout="row wrap" fxLayoutGap="5px">
-      <div routerLink="/pets/detail/{{pet.id}}" class="card" *ngFor="let pet of petItems" fxFlex="22.5">
+    <div fxFlex fxFill fxLayout="row wrap"  fxLayoutGap="5px">
+      <div routerLink="/pets/detail/{{pet.id}}" class="card" *ngFor="let pet of petItems" fxFlex="33">
         <h5 class="card-header">{{pet.name}}</h5>
         <div class="card-body">
           <h5 class="card-title">Type: {{pet.type}}</h5>

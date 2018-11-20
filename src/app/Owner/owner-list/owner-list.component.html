@@ -10,7 +10,7 @@
     </div>
 
     <div fxFlex fxFill fxLayout="row wrap" fxLayoutGap="5px">
-      <div routerLink="/owners/detail/{{owner.id}}" class="card" *ngFor="let owner of ownersList" fxFlex="22.5">
+      <div routerLink="/owners/detail/{{owner.id}}" class="card" *ngFor="let owner of ownersList" fxFlex="24.7">
         <div class="card-body">
           <h5 class="card-title">{{owner.firstName}} {{owner.lastName}}</h5>
           <a routerLink="/owners/detail/{{owner.id}}" class="btn btn-primary">Details</a>
